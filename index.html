@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhoneBook - App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+</head>
+<body>
+    
+    <div class="container">
+        <div style="display: flex;">
+            <h1>Phone Book</h1>
+            <img src="images/logo.png" alt="" width="40px" style="margin-left: 10px;">
+        </div>
+ 
+        <label for="darkModeToggle" style="color: rgb(6, 6, 79);">Change Mode</label>
+        <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search contacts...">
+            <button onclick="searchContacts()" ><img src="images/search.png" ></button>
+        </div>
+
+        <div class="contact-info">
+            <input type="text" id="name" placeholder="Enter name">
+        
+            <select id="countryCode">
+                <option value="+1">+1 (USA)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+91">+91 (India)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+81">+81 (Japan)</option>
+                <option value="+49">+49 (Germany)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+39">+39 (Italy)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+55">+55 (Brazil)</option>
+                <option value="+1-213">+1-213 (Los Angeles)</option>
+                <option value="+1-415">+1-415 (San Francisco)</option>
+                <option value="+1-212">+1-212 (New York)</option>
+                <option value="+27">+27 (South Africa)</option>
+                <option value="+82">+82 (South Korea)</option>
+                <option value="+86">+86 (China)</option>
+                <option value="+52">+52 (Mexico)</option>
+                <option value="+47">+47 (Norway)</option>
+                <option value="+55">+55 (Brazil)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+46">+46 (Sweden)</option>
+                <option value="+31">+31 (Netherlands)</option>
+                <option value="+56">+56 (Chile)</option>
+                <option value="+48">+48 (Poland)</option>
+                <option value="+971">+971 (UAE)</option>
+                <option value="+20">+20 (Egypt)</option>
+                <option value="+90">+90 (Turkey)</option>
+                <option value="+53">+53 (Cuba)</option>
+                <option value="+965">+965 (Kuwait)</option>
+                <option value="+974">+974 (Qatar)</option>
+                <option value="+966">+966 (Saudi Arabia)</option>
+                <option value="+20">+20 (Egypt)</option>
+                <option value="+971">+971 (UAE)</option>
+            </select>
+            
+    
+            <input type="tel" id="phone" placeholder="Enter phone number" pattern="\d{10}" title="Enter a 10-digit phone number">
+            <button onclick="addContact()">Add Contact</button>
+    
+        </div>
+        
+        <div class="contact-header">
+            <h2>Contacts</h2>
+            <div class="export-buttons">
+                <button onclick="saveAsText()">Save as <img src="images/txt.png" width="29px"></button>
+            </div>
+    
+        </div>
+        <ul id="contactList"></ul>
+      
+
+    </div>
+  
+    
+     <div id="deletePopup" class="popup" >
+      
+        <h3>Are you sure you want to <img src="images/trash.png"  width="20px"> this contact?</h3>
+        <button onclick="confirmDelete()">Yes, Delete</button>
+        <button onclick="closePopup('deletePopup')">Cancel</button>
+    </div>
+
+    <div id="customAlert" class="custom-alert">
+        <p id="alertMessage"></p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+</body>
+</html>
